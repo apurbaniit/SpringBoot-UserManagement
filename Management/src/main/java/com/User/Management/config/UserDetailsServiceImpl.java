@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.User.Management.dao.UserRepository;
 import com.User.Management.entities.User;
 
-public class UserDetailsServiceImpl  implements UserDetailsService{
-
+public class UserDetailsServiceImpl  implements UserDetailsService
+{
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -21,7 +21,7 @@ public class UserDetailsServiceImpl  implements UserDetailsService{
 		
 		if(user == null)
 		{
-		throw new UsernameNotFoundException("could not find the user");	
+			throw new UsernameNotFoundException("could not find the user");	
 		}
 		
 		CustomUserDetails customUserDetails=new CustomUserDetails(user);
@@ -29,6 +29,4 @@ public class UserDetailsServiceImpl  implements UserDetailsService{
 		return customUserDetails;
 	}
 	
-	
-
 }
